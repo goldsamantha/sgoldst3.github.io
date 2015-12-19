@@ -240,38 +240,3 @@
         }
     }
 }
-
-.post-page-content{
-  width: 70%;
-  float: right;
-}
-
-.dark-bg{
-  background-color: #222;
-}
-
-.left, .left-back{
-  width: 28%;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  float: left;
-
-}
-
-.stars{
-  position: fixed;
-  top:0;
-  left: 0;
-  width: 28%;
-  height: 100vh;
-  display: inline-block;
-  float: left;
-
-  z-index: -1;
-
-}
-
-.left-back{
-  z-index: -2;
-}
