@@ -67,14 +67,6 @@ window.onresize = function() {
   function(){
     return Math.random()*height+1;
   });
-
-
-  // svg.selectAll("circle")
-  //   .data(nodes.slice(1)).enter()
-  //   .style("fill","#ff0000")
-  //   .attr("cx", function(){return Math.random()*width+1};)
-  //   .attr("cy", function(){return Math.random()*height+1};)
-  //   .attr("r", function(){return Math.random()*3+1};);
 };
 
 var ls_nodes = svg.selectAll("circle")

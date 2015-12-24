@@ -9,13 +9,55 @@
     <!-- {% include header.html %} -->
 
     {% include left_panel.html %}
+
     <div class="post-page-content">
+
+      <div class="cover-photo">
+        <h1 class="post-title">{{page.title}}</h1>
+        <!-- <h2 class="post-title">{{page.title}}</h2> -->
+      </div>
+
+      <!-- <div>
+        {% for post in site.posts limit:10 %}
+          <a href = "{{post.url}}">{{post.title}}</a><br>
+        {% endfor %}
+      </div> -->
+
       <div class="wrapper">
-        <!-- {{ content }} -->
         {% include post_content.html %}
       </div>
     </div>
 
   </body>
+
+  <script type="text/javascript">
+    var color = 'rgba(0,0,0,.55)';
+    var bg_string = "linear-gradient("+ color + "," + color +"), url('{{site.url}}{{page.cover_url}}')";
+
+    if ( $('body').width() < 800 ){
+      bg_string = "url('{{site.url}}{{page.cover_url}}')";
+    }
+
+    function setBackground(background_prop_string) {
+      $('.cover-photo').css('background', background_prop_string);
+      $('.cover-photo').css('background-size', 'cover');
+      $('.cover-photo').css('background-position', 'center center');
+    }
+
+    setBackground(bg_string);
+
+
+    window.onresize = function(){
+      bg_string = "linear-gradient("+ color + "," + color +"), url('{{site.url}}{{page.cover_url}}')";
+      if ($('body').width() < 800){
+        bg_string = "url('{{site.url}}{{page.cover_url}}')";
+      }
+      setBackground(bg_string);
+    };
+
+    // going to need to do some kind of shitty linked list things
+    // over  site.posts
+
+  </script>
 
 </html>
