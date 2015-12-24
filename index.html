@@ -85,12 +85,12 @@ layout: home
 
           <div class="mid-block-right-upper">
             <h2>I build things with my hands and with code.
-              Maybe we can get coffee around New York! </h2>
+            </h2>
             </div>
 
             <div class = "below-block">
-              <p> I enjoy fiddling around with D3, HTML, CSS, JavasScript, and playing
-                with dirt to make pottery. I'm a software engineer at
+              <p> I like to make things that glow, like light up clothing, and
+                translucent pottery! I'm a software engineer at
                 <a href= "http://www.etsy.com">Etsy</a>.
                 You can reach me by any of the following. </p>
 
@@ -122,7 +122,7 @@ layout: home
                     </li>
 
                   </ul>
-                  
+
                 </div>
               </div>
 
@@ -130,6 +130,36 @@ layout: home
 
           </div>
     </div>
+
+    <div class="menu-container">
+      <div class="col-1-3">
+          <div class="white-block">
+            <h1>Recent Work</h1>
+          </div>
+      </div>
+
+      <ul class="post-list">
+        {% for post in site.posts %}
+          <li>
+            <!-- <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span> -->
+            <div class = "opacity-bg">
+              <h2>
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+              </h2>
+
+              <div class="case-study">
+                <h3>View Case Study</h3>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+
+
+
+    </div>
+
+
  <!--
       <div class = "menu-container">
 
@@ -273,12 +303,11 @@ layout: home
     <script type="text/javascript" src="js/pages.js"></script>
     <script type="text/javascript" src="js/actions.js"></script>
     <script type="text/javascript">
-       //This prepares background images...a
+       //This prepares background images...
        var background_string = "linear-gradient(rgba(27,41,63,.25), rgba(27,41,63,.3)), url('{{site.url}}assets/home/night_sky1.jpg')";
        $('.load').css('background', background_string);
 
        $('.about-image').css('background-image', 'url("{{site.url}}assets/home/bio.png")');
-
 
        $('.moving-stars').css('background-image', 'url("{{site.url}}assets/home/dots30.png")');
 
