@@ -142,7 +142,7 @@ layout: home
         {% for post in site.posts %}
           <li>
             <!-- <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span> -->
-            <div class = "opacity-bg">
+            <div class = "opacity-bg" style="background-image: {{site.url}}{{post.cover-photo}}">
               <h2>
                 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
               </h2>
@@ -250,12 +250,12 @@ layout: home
 
 
       <div id="footer">
-        <p>This site was brought to life by so many helping hands.
+        <p>I built this custom skin for a Jekyll blog for fun. Feel
+        free to fork your own and poke around.
         Thanks to all of my friends at <a href="http://www.recurse.com">
         the Recurse Center</a> and <a href="http://www.tayarishapoe.com/">
-        Tayarisha Poe</a> for photography. I built the site with
-        HTML, pure CSS, JavaScript, jQuery, and D3. Here is my <a href=
-        "img/resume.pdf">resume</a>.</p>
+        Tayarisha Poe</a> for photography.
+        </p>
 
         <!-- <div class=""></div> -->
 
@@ -300,7 +300,6 @@ layout: home
     </div>
 
 
-    <script type="text/javascript" src="js/pages.js"></script>
     <script type="text/javascript" src="js/actions.js"></script>
     <script type="text/javascript">
        //This prepares background images...
