@@ -20,11 +20,15 @@
   </div>
 
   <div class="footer-nav-container">
-    <div class="footer-nav">
-      <p>Prev</p>
-    </div><div class="footer-nav">
-      <p>Next</p>
-    </div>
+    <a class="footer-nav">
+      <div >
+        <p>Prev</p>
+      </div>
+    </a><a class="footer-nav">
+      <div >
+        <p>Next</p>
+      </div>
+    </a>
   </div>
 
 </div>
@@ -32,12 +36,34 @@
 
 
 <script type="text/javascript" src="{{ site.url }}js/library/stars.js"></script>
+<script type="text/javascript" src="{{ site.url }}js/library/toggle.js"></script>
 <script type="text/javascript">
-  console.log('butts');
-  var i =0;
-  //TODO: fix whatever is wrong trying to iterate through this loop.
-  // google: how to iterate through a loop using smarty and JavaScript
-  // {% for post in site.posts %}
-    // console.log('butts', {{post}}.length);
-  // {% endfor %}
+  console.log("hi friend! hope you're having a really solid day!");
+  {% capture posts %}
+  [
+    {% for post in site.posts %}
+    {
+      "title"    : "{{ post.title }}",
+      "url"      : "{{ post.url }}",
+      "cover_url"      : "{{ post.cover_url }}",
+      "date"     : "{{ post.date | date: "%B %d, %Y" }}",
+    } {% if forloop.last %}{% else %},{% endif %}
+    {% endfor %}
+  ]
+  {% endcapture %}
+  var posts = {{posts | strip_newlines}};
+
+
+  var curr_post_url = "{{ page.url }}";
+  var curr_post_index = 0;
+  for (var i=0; i < posts.length; i++){
+    if (posts[i].url == curr_post_url) {
+      curr_post_index = i;
+    }
+  }
+
+
+  togglePostLeftPanel(-1, posts, curr_post_index);
+  togglePostLeftPanel(1, posts, curr_post_index);
+
 </script>

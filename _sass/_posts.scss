@@ -70,7 +70,8 @@ Left panel
   }
 
   h1 {
-    font-size: 100px;
+    font-size: 30px;
+    text-align: left;
   }
 }
 
@@ -84,6 +85,7 @@ Left panel
   // do some vertical align tweaking
   border-bottom: 1px solid white;
   transition: background-color 1s ease;
+  height: 85px;
   color: $grey-color;
   p{
     padding-top: 6px;
@@ -110,7 +112,7 @@ Left panel
   display: inline-block;
   width: 50%;
   padding-top: 20px;
-  height: 60px;
+  height: 70px;
 
   p{
     width: 100%;
@@ -118,6 +120,11 @@ Left panel
     position: absolute;
     padding-top: 6px;
   }
+}
+
+.footer-nav:first-child {
+  box-sizing: border-box;
+  border-right: 1px solid white;
 }
 
 .footer-nav:hover{

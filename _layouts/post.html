@@ -16,18 +16,59 @@
         <h1 class="post-title">{{page.title}}</h1>
       </div>
 
-      <!-- <div>
-        {% for post in site.posts limit:10 %}
-          <a href = "{{post.url}}">{{post.title}}</a><br>
-        {% endfor %}
-      </div> -->
 
       <div class="wrapper">
         {% include post_content.html %}
       </div>
+
+
+
+
+
+  <a class="next" href="">
+    <div class="module right-bottom">
+      <h2></h2>
+
+      <div class="case-study">
+        <h3>View Next Project</h3>
+      </div>
+
+    </div>
+  </a>
+
+
     </div>
 
   </body>
+
+
+<script type="text/javascript">
+  {% capture posts %}
+  [
+    {% for post in site.posts %}
+    {
+      "title"    : "{{ post.title }}",
+      "url"      : "{{ post.url }}",
+      "cover_url"      : "{{ post.cover_url }}",
+      "date"     : "{{ post.date | date: "%B %d, %Y" }}",
+    } {% if forloop.last %}{% else %},{% endif %}
+    {% endfor %}
+  ]
+  {% endcapture %}
+  var posts = {{posts | strip_newlines}};
+
+
+  var curr_post_url = "{{ page.url }}";
+  var curr_post_index = 0;
+  for (var i=0; i < posts.length; i++){
+    if (posts[i].url == curr_post_url) {
+      curr_post_index = i;
+    }
+  }
+
+  setNext(posts, curr_post_index);
+</script>
+
 
   <script type="text/javascript">
     var color = 'rgba(0,0,0,.55)';

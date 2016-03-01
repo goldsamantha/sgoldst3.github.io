@@ -42,14 +42,13 @@ force.start();
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
-    .attr("height", height).attr("class", "moon");
+    .attr("height", height)
+    .attr("class", "moon");
 
 svg.selectAll("circle")
     .data(nodes.slice(1))
     .enter().append("circle")
     .attr("r", function(d) { return d.radius; })
-   // .style("fill", function(d, i) { return color(i % 1); });
-
    .style("fill", function(d, i) {
   return i % 3 ? "#DDD" : "#fff";
 });
