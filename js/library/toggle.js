@@ -21,7 +21,6 @@ function setNext(posts, post_index) {
   $('.right-bottom').css('background',
     "linear-gradient("+ color + "," + color +"), url('" + posts[index].cover_url +"')");
   $('.right-bottom').css('background-size', 'cover');
-  $('.content-header').css('background-size', 'cover');
   var title = posts[index].title;
   $('.right-bottom h2').text(title.toUpperCase().slice(0,1)+title.slice(1, title.length));
 
