@@ -4,6 +4,7 @@ title:  "Hi Frond! you got dis :D"
 date:   2015-12-24 01:03:20 -0500
 categories: jekyll update
 cover_url: /assets/dress/flora.jpg
+short_title: "Frond"
 ---
 This post is will walk you through some important parts of making your own wearable textiles that glitter. To start you'll need a few things.
 

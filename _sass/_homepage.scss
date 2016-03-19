@@ -37,11 +37,6 @@
 }
 
 .no-select {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
 }
 
@@ -56,7 +51,6 @@
 	min-height: 700px;
   left: 50%;
   margin-right: -50%;
-	-webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
 
 }
@@ -140,8 +134,6 @@ MID-SECTION
 	color: #fff;
 	position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 	font-size: 32px;
 
@@ -231,19 +223,19 @@ GRID SYSTEM
 
 
 .module:hover h2{
-	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 	transition: padding 1s ease-in-out;
 	padding: 40px 0 0 0;
 }
 
 .module:hover .case-study{
-	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 	transition: top 1s ease-in-out;
 	top: 4px;
 }
 
 .module:hover, .moving-stars:hover{
-	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 	transition: border 1s ease-in-out;
 	border: 10px solid #fff;
 }
@@ -289,7 +281,7 @@ GRID SYSTEM
 .module h2, .moving-stars h2{
 	padding: 70px 0 0 0;
 	font-weight: normal;
-	font-size: 72px;
+	font-size: 66px;
 }
 
 .about-container{
@@ -370,8 +362,6 @@ GRID SYSTEM
 }
 
 *, *:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 

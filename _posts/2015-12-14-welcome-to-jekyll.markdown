@@ -4,6 +4,7 @@ title:  "Circuits to Wear"
 date:   2015-12-14 01:03:20 -0500
 categories: jekyll update
 cover_url: /assets/dress/flora.jpg
+short_title: "Circuits"
 ---
 This post is will walk you through some important parts of making your own wearable textiles that glitter. To start you'll need a few things.
 
@@ -20,7 +21,7 @@ You’ll find this post in your `_posts` directory. Go ahead and edit it and re-
 
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
-Here's some code for 
+Here's some code for
 
 {% highlight java %}
 int led = 10;   // Look at your flora, this number corresponds
