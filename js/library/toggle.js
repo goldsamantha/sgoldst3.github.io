@@ -36,8 +36,13 @@ function setNext(posts, post_index) {
 function assignColumnClasses(items) {
   for (var i=0; i< items.length; i++) {
     if (i==0) {
-    jQuery(items[i]).addClass('col-2-3');
+      jQuery(items[i]).addClass('col-2-3');
+    } else if ((items.length-1).mod(3) == 2 && i >=items.length-2) {
+      jQuery(items[i]).addClass('col-1-2');
+    } else if ((items.length-1).mod(3) == 1 && i >=items.length-1) {
+      jQuery(items[i]).addClass('');
+    } else {
+      jQuery(items[i]).addClass('col-1-3');
     }
-    jQuery(items[i]).addClass('col-1-3');
   }
 }
