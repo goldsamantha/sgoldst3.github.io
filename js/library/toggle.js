@@ -26,3 +26,18 @@ function setNext(posts, post_index) {
 
 
 }
+
+/*
+* This is kind of a special and weird function -- go through each of the posts
+* and handle the post number and match it to the corresponding class that should
+* be attributed to it. A bit janky, but gets the job done.
+* @items - a list of divs that should get corresponding classes.
+*/
+function assignColumnClasses(items) {
+  for (var i=0; i< items.length; i++) {
+    if (i==0) {
+    jQuery(items[i]).addClass('col-2-3');
+    }
+    jQuery(items[i]).addClass('col-1-3');
+  }
+}

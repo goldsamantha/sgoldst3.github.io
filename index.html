@@ -48,6 +48,8 @@ layout: home
 <body>
 
   <script type="text/javascript" src="{{site.url}}/js/library/moon.js"></script>
+  <script type="text/javascript" src="{{site.url}}/js/library/toggle.js"></script>
+  <script type="text/javascript" src="{{site.url}}/js/library/jquery.js"></script>
 
   <div class="container">
 
@@ -137,7 +139,7 @@ layout: home
 
         {% for post in site.posts %}
         <a href="{{ post.url | prepend: site.baseurl }}">
-          <div class="col-1-3 module">
+          <div class="columns module">
             <div class = "opacity-bg">
               <h2>
                 {{post.short_title}}
@@ -301,12 +303,8 @@ layout: home
        //This prepares background images...
        var background_string = "linear-gradient(rgba(27,41,63,.25), rgba(27,41,63,.3)), url('{{site.url}}assets/home/night_sky1.jpg')";
        $('.load').css('background', background_string);
-
        $('.about-image').css('background-image', 'url("{{site.url}}assets/home/bio.png")');
-
        $('.moving-stars').css('background-image', 'url("{{site.url}}assets/home/dots30.png")');
-
-
 
        {% capture posts %}
        [
@@ -335,7 +333,7 @@ layout: home
          //$(post_navigation_containers[i]).addClass(pages[i]);
        }
 
+       assignColumnClasses($('.columns'));
+
     </script>
-
-
   </body>
