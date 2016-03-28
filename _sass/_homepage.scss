@@ -282,6 +282,7 @@ GRID SYSTEM
 	padding: 70px 0 0 0;
 	font-weight: normal;
 	font-size: 66px;
+	height: 50%;
 }
 
 .about-container{
@@ -381,9 +382,10 @@ GRID SYSTEM
 .moving-stars{
 	display: inline;
 	position: absolute;
-	width: 33.33%;
-	height: 33.33vh;
-	background-size: 200%;
+	background-image: url('{{site.url}}/assets/home/more.jpg');
+	// width: 33.33%;
+	// height: 33.33vh;
+	// background-size: 200%;
 	overflow: hidden;
 	animation: animate-bg 10s -1.5s linear infinite;
 	background-color: #09091b;
@@ -393,7 +395,6 @@ GRID SYSTEM
 }
 .menu-container{
 	width: 100%;
-	height: 100vh;
 	background-color: #09091B;
 	background-size: 100%;
 }
