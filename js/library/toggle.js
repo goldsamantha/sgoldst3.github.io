@@ -45,4 +45,10 @@ function assignColumnClasses(items) {
       jQuery(items[i]).addClass('col-1-3');
     }
   }
+
+  var one_thirds = $('.col-1-3');
+  var mod_amt = (one_thirds.length).mod(2);
+  if (mod_amt == 0){
+    jQuery(one_thirds[one_thirds.length-1]).addClass('full-width');
+  }
 }

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Spooky"
-date:   2016-03-27 01:03:20 -0500
+date:   2017-03-27 01:03:20 -0500
 categories: jekyll update
 cover_url: /assets/home/jyve.jpg
 short_title: "Spooky"

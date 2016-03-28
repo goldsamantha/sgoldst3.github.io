@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "A third post"
-date:   2016-03-27 01:03:20 -0500
+date:   2017-03-27 01:03:20 -0500
 categories: jekyll update
-cover_url: /assets/home/print.jpg
+cover_url: /assets/home/pottery/pottery1.jpg
 short_title: "Print"
 ---
 This post is will walk you through some important parts of making your own wearable textiles that glitter. To start you'll need a few things.

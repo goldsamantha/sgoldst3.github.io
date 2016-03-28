@@ -504,6 +504,11 @@ GRID SYSTEM
 		width: 50%;
 
 	}
+
+	.full-width {
+		width: 100%;
+	}
+
 	.moving-stars{
 		width: 100%;
 		background-color: #09091b;
@@ -543,7 +548,7 @@ GRID SYSTEM
 		max-height: 600px;
 	}
 
-	.col-1-3:first-of-type{
+	.display-none{
 		display: none;
 	}
 
