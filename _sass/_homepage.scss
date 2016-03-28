@@ -52,6 +52,7 @@
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, 0%);
+	-webkit-transform: translate(-50%, 0%);
 
 }
 
@@ -135,6 +136,7 @@ MID-SECTION
 	position: relative;
   top: 50%;
   transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 	font-size: 32px;
 
 }
@@ -225,18 +227,21 @@ GRID SYSTEM
 .module:hover h2{
 	transform-style: preserve-3d;
 	transition: padding 1s ease-in-out;
+	-webkit-transition: padding 1s ease-in-out;
 	padding: 40px 0 0 0;
 }
 
 .module:hover .case-study{
 	transform-style: preserve-3d;
 	transition: top 1s ease-in-out;
+	-webkit-transition: top 1s ease-in-out;
 	top: 4px;
 }
 
 .module:hover, .moving-stars:hover{
 	transform-style: preserve-3d;
 	transition: border 1s ease-in-out;
+	-webkit-transition: border 1s ease-in-out;
 	border: 10px solid #fff;
 }
 
@@ -303,6 +308,7 @@ GRID SYSTEM
 
 .mid-block-left:hover #photographer{
 	transition: all 1s ease;
+	-webkit-transition: all 1s ease;
 	bottom: 100px;
 	opacity: 1;
 }
@@ -382,10 +388,9 @@ GRID SYSTEM
 .moving-stars{
 	display: inline;
 	position: absolute;
-	background-image: url('{{site.url}}/assets/home/more.jpg');
-	// width: 33.33%;
-	// height: 33.33vh;
-	// background-size: 200%;
+	width: 33.33%;
+	height: 33.33vh;
+	background-size: 200%;
 	overflow: hidden;
 	animation: animate-bg 10s -1.5s linear infinite;
 	background-color: #09091b;
