@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A third post"
-date:   2016-03-27 01:03:20 -0500
+date:   2017-03-27 01:03:20 -0500
 categories: jekyll update
 cover_url: /assets/home/more.jpg
 short_title: "Print"

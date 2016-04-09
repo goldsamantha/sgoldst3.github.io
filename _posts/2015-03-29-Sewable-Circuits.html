@@ -1,0 +1,176 @@
+---
+layout: post
+title:  "Sewable Circuits Part I"
+date:   2016-03-29 01:03:20 -0500
+categories: jekyll update
+cover_url: /assets/dress/flora.jpg
+short_title: "Circuits I"
+---
+<style media="screen">
+.top-two-thirds{
+width: 40%;
+margin: 0 auto;
+}
+
+
+.fade-out{
+animation: fadeOut 1s;
+animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeOut{
+0% {
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+100% {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+}
+
+#constellation{
+fill-opacity: 0;
+stroke-opacity: 0;
+}
+
+.fade-in{
+animation: fadeIn 1s;
+animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn{
+0% {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+100% {
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+}
+
+.pin2-animate{
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+0% {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+50% {
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+100% {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+}
+
+</style>
+<body>
+This post is will walk you through some important parts of making your own wearable textiles that glitter. To start you'll need a few things.
+
+For this project I used the <a href="https://www.adafruit.com/products/659?gclid=CKWw_tX868kCFYUWHwodw54CPQ"> FLORA </a> from Adafruit.
+
+An image that shows all of the items and where to buy them.
+<br>
+To start there are a few important things to know about what we're working on. To make this dress we'll need to create a pretty elaborate circuit. This can be a challenge for a few
+
+Here's some code for
+
+{% highlight java %}
+int led = 10;   // Look at your flora, this number corresponds
+                // to the positive pin you're connected to.
+int brightness =  0;  // start with no brightness
+int fadeAmount = 5;   // adjust this number to taste
+int delayIncr = 15;   // how long to wait between light incr/decr
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize the digital pin as an output.
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+
+    analogWrite(led, brightness);
+    brightness = brightness + fadeAmount;
+
+    if (brightness == 0 || brightness == 255) {
+      fadeAmount = -fadeAmount;
+    }
+
+    delay(delayIncr);
+}
+{% endhighlight %}
+
+{% include dress_svgs/stars_1.html %}
+
+</body>
+
+
+<script type="text/javascript">
+$('.page').css('background-image', 'url("/assets/dress/illo/bg1.svg")');
+$('#next-step').click(function(){
+  $('#next-step').dequeue("circuitCross");
+  console.log("blaah");
+});
+
+$('#next-step').queue("circuitCross", function(){
+  $('.wire-1').css('stroke-opacity', "1");
+  $('.wire-1').css('fill-opacity', "1");
+});
+
+
+$('#next-step').queue("circuitCross", function(){
+  $(".led-fill-1").first().attr('class', 'led-fill-1 led-fill-on');
+});
+
+$('#next-step').queue("circuitCross", function(){
+  $('.led2').css('stroke-opacity', "1");
+  $('.led2').css('fill-opacity', "1");
+});
+
+$('#next-step').queue("circuitCross", function(){
+  $('.crossed-wires').css('stroke-opacity', "1");
+  $('.crossed-wires').css('fill-opacity', "1");
+
+  $(".led-fill-1").attr('class', 'led-fill-1');
+});
+
+$('#next-step').queue("circuitCross", function(){
+  $('.led2').css('stroke-opacity', "0");
+  $('.led2').css('fill-opacity', "0");
+  $('.crossed-wires').css('stroke-opacity', "0");
+  $('.crossed-wires').css('fill-opacity', "0");
+  $('.led-sequin-2').css('stroke-opacity', "1");
+  $('.led-sequin-2').css('fill-opacity', "1");
+
+  //start led-fill-1 glowing
+  $(".led-fill-1").attr('class', 'led-fill-1 led-fill-on');
+
+  $('.led2-correction').css('stroke-opacity', "1");
+  $('.led2-correction').css('fill-opacity', "1");
+});
+
+$('#next-step').queue("circuitCross", function(){
+  $('.led-sequin-3').css('stroke-opacity', "1");
+  $('.led-sequin-3').css('fill-opacity', "1");
+});
+
+$('#next-step').queue("circuitCross", function(){
+  $('.wire-2').css('stroke-opacity', "1");
+  $('.wire-2').css('fill-opacity', "1");
+  $(".led-fill-2").attr('class', 'led-fill-2 led-fill-on-2');
+});
+
+$('#next-step').queue("circuitCross", function(){
+  window.location = 'page3.html';
+});
+
+
+</script>

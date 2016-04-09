@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Circuits to Wear"
-date:   2015-12-14 01:03:20 -0500
+date:   2017-12-14 01:03:20 -0500
 categories: jekyll update
 cover_url: /assets/dress/flora.jpg
 short_title: "Circuits"
