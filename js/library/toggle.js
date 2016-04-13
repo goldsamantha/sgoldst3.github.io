@@ -15,8 +15,6 @@ function setNext(posts, post_index) {
   var index = (post_index+1).mod(posts.length);
   next_post.setAttribute('href', posts[index].url);
 
-
-  // need to make this div bigger?
   var color = 'rgba(0,0,0,.5)';
   $('.right-bottom').css('background',
     "linear-gradient("+ color + "," + color +"), url('" + posts[index].cover_url +"')");

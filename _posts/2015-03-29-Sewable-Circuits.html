@@ -8,67 +8,89 @@ short_title: "Circuits I"
 ---
 <style media="screen">
 .top-two-thirds{
-width: 40%;
-margin: 0 auto;
+  height: 66%;
+  width: 60%;
+  margin: 0 auto;
 }
 
-
-.fade-out{
-animation: fadeOut 1s;
-animation-fill-mode: forwards;
+.page{
+  display: block;
 }
 
+/*.wrong-line{
+  animation: pulse 3s infinite;
+}*/
 
-@keyframes fadeOut{
-0% {
-  stroke-opacity: 1;
-  fill-opacity: 1;
-}
-100% {
+.led2, .crossed-wires, .led2-correction, [class*="wire-"], .led-sequin-3, [class*="led-fill"] {
   stroke-opacity: 0;
   fill-opacity: 0;
 }
+
+[class*="led-fill-on"] {
+  animation: pulse 2s infinite;
+  fill: #FFF ;
+  stroke: #FFF;
 }
 
-#constellation{
-fill-opacity: 0;
-stroke-opacity: 0;
+.led-fill-on-2 {
+  animation: pulse 1s infinite;
 }
 
-.fade-in{
-animation: fadeIn 1s;
-animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn{
-0% {
-  stroke-opacity: 0;
-  fill-opacity: 0;
-}
-100% {
-  stroke-opacity: 1;
-  fill-opacity: 1;
-}
-}
-
-.pin2-animate{
-animation: pulse 2s infinite;
-}
 
 @keyframes pulse {
-0% {
-  stroke-opacity: 0;
-  fill-opacity: 0;
+  0% {
+    stroke-opacity: 0;
+    fill-opacity: 0;
+  }
+  50% {
+    stroke-opacity: 1;
+    fill-opacity: 1;
+  }
+  100% {
+    stroke-opacity: 0;
+    fill-opacity: 0;
+  }
 }
-50% {
-  stroke-opacity: 1;
-  fill-opacity: 1;
+
+
+/*
+
+Star button to progress to next slide
+
+
+*/
+#next-step{
+  width: 50px;
+  animation: growAndShrink 2s infinite;
 }
-100% {
-  stroke-opacity: 0;
-  fill-opacity: 0;
+
+.next-container{
+  position: relative;
+  float: right;
+  width: 100px;
+  height: 100px;
+  bottom: 0px;
+  right: 0px;
 }
+
+@keyframes growAndShrink {
+  0% {
+    transform: scale(1.0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
 }
+
+.clear {
+  clear: both;
+}
+
 
 </style>
 <body>
@@ -109,68 +131,104 @@ void loop() {
 {% endhighlight %}
 
 {% include dress_svgs/stars_1.html %}
+<br>
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+
 
 </body>
 
 
 <script type="text/javascript">
 $('.page').css('background-image', 'url("/assets/dress/illo/bg1.svg")');
+reset();
+var is_empty = false;
 $('#next-step').click(function(){
   $('#next-step').dequeue("circuitCross");
-  console.log("blaah");
+  if (is_empty){
+    reset();
+    is_empty = false;
+  }
+  console.log("blaah", is_empty);
 });
 
-$('#next-step').queue("circuitCross", function(){
-  $('.wire-1').css('stroke-opacity', "1");
-  $('.wire-1').css('fill-opacity', "1");
-});
+function reset() {
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.wire-1').css('stroke-opacity', "1");
+    $('.wire-1').css('fill-opacity', "1");
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $(".led-fill-1").first().attr('class', 'led-fill-1 led-fill-on');
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.led2').css('stroke-opacity', "1");
+    $('.led2').css('fill-opacity', "1");
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.crossed-wires').css('stroke-opacity', "1");
+    $('.crossed-wires').css('fill-opacity', "1");
+
+    $(".led-fill-1").attr('class', 'led-fill-1');
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.led2').css('stroke-opacity', "0");
+    $('.led2').css('fill-opacity', "0");
+    $('.crossed-wires').css('stroke-opacity', "0");
+    $('.crossed-wires').css('fill-opacity', "0");
+    $('.led-sequin-2').css('stroke-opacity', "1");
+    $('.led-sequin-2').css('fill-opacity', "1");
+
+    //start led-fill-1 glowing
+    $(".led-fill-1").attr('class', 'led-fill-1 led-fill-on');
+
+    $('.led2-correction').css('stroke-opacity', "1");
+    $('.led2-correction').css('fill-opacity', "1");
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.led-sequin-3').css('stroke-opacity', "1");
+    $('.led-sequin-3').css('fill-opacity', "1");
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.wire-2').css('stroke-opacity', "1");
+    $('.wire-2').css('fill-opacity', "1");
+    $(".led-fill-2").attr('class', 'led-fill-2 led-fill-on-2');
+  });
 
 
-$('#next-step').queue("circuitCross", function(){
-  $(".led-fill-1").first().attr('class', 'led-fill-1 led-fill-on');
-});
-
-$('#next-step').queue("circuitCross", function(){
-  $('.led2').css('stroke-opacity', "1");
-  $('.led2').css('fill-opacity', "1");
-});
-
-$('#next-step').queue("circuitCross", function(){
-  $('.crossed-wires').css('stroke-opacity', "1");
-  $('.crossed-wires').css('fill-opacity', "1");
-
-  $(".led-fill-1").attr('class', 'led-fill-1');
-});
-
-$('#next-step').queue("circuitCross", function(){
-  $('.led2').css('stroke-opacity', "0");
-  $('.led2').css('fill-opacity', "0");
-  $('.crossed-wires').css('stroke-opacity', "0");
-  $('.crossed-wires').css('fill-opacity', "0");
-  $('.led-sequin-2').css('stroke-opacity', "1");
-  $('.led-sequin-2').css('fill-opacity', "1");
-
-  //start led-fill-1 glowing
-  $(".led-fill-1").attr('class', 'led-fill-1 led-fill-on');
-
-  $('.led2-correction').css('stroke-opacity', "1");
-  $('.led2-correction').css('fill-opacity', "1");
-});
-
-$('#next-step').queue("circuitCross", function(){
-  $('.led-sequin-3').css('stroke-opacity', "1");
-  $('.led-sequin-3').css('fill-opacity', "1");
-});
-
-$('#next-step').queue("circuitCross", function(){
-  $('.wire-2').css('stroke-opacity', "1");
-  $('.wire-2').css('fill-opacity', "1");
-  $(".led-fill-2").attr('class', 'led-fill-2 led-fill-on-2');
-});
-
-$('#next-step').queue("circuitCross", function(){
-  window.location = 'page3.html';
-});
-
+  $('#next-step').queue("circuitCross", function(){
+    resetAll();
+    is_empty = true;
+  });
+  // $('#next-step').queue("circuitCross", function(){
+  //   //do something to reset the queue;
+  //   reset();
+  // });
+  //
+}
+function resetAll(){
+    $('.wire-1').css('stroke-opacity', "0");
+    $('.wire-1').css('fill-opacity', "0");
+    $('.wire-2').css('stroke-opacity', "0");
+    $('.wire-2').css('fill-opacity', "0");
+    $('.led-sequin-2').css('stroke-opacity', "0");
+    $('.led-sequin-2').css('fill-opacity', "0");
+    $('.led-sequin-3').css('stroke-opacity', "0");
+    $('.led-sequin-3').css('fill-opacity', "0");
+    $(".led-fill-2").attr('class', 'led-fill-2');
+    $(".led-fill-1").attr('class', 'led-fill-1');
+    $('.crossed-wires').css('stroke-opacity', "0");
+    $('.crossed-wires').css('fill-opacity', "0");
+    $('.led2-correction').css('stroke-opacity', "0");
+    $('.led2-correction').css('fill-opacity', "0");
+    $('.led2').css('stroke-opacity', "0");
+    $('.led2').css('fill-opacity', "0");
+}
 
 </script>
