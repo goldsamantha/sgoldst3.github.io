@@ -1,6 +1,113 @@
-<div class="page">
+<style media="screen">
+.page{
+  display: block;
+  background-color: #222;
+}
 
-  <div class="top-two-thirds">
+.left-block{
+  display: inline-block;
+  width: 60%;
+}
+
+.right-block{
+  display: inline-block;
+  width: 38%;
+  vertical-align: top;
+}
+
+.multi-pad-light{
+  padding:5px;
+  color: #fff;
+}
+
+h1 {
+  text-align: left;
+  font-size: 32px;
+}
+
+.right-block p {
+  color: #fff;
+}
+
+/*.wrong-line{
+  animation: pulse 3s infinite;
+}*/
+
+.led2, .crossed-wires, .led2-correction, [class*="wire-"], .led-sequin-3, [class*="led-fill"] {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+
+[class*="led-fill-on"] {
+  animation: pulse 2s infinite;
+  fill: #FFF ;
+  stroke: #FFF;
+}
+
+.led-fill-on-2 {
+  animation: pulse 1s infinite;
+}
+
+
+@keyframes pulse {
+  0% {
+    stroke-opacity: 0;
+    fill-opacity: 0;
+  }
+  50% {
+    stroke-opacity: 1;
+    fill-opacity: 1;
+  }
+  100% {
+    stroke-opacity: 0;
+    fill-opacity: 0;
+  }
+}
+
+
+/*
+
+Star button to progress to next slide
+
+
+*/
+#next-step{
+  width: 50px;
+  animation: growAndShrink 2s infinite;
+}
+
+.next-container{
+  position: relative;
+  float: right;
+  width: 100px;
+  height: 100px;
+  bottom: 0px;
+  right: 0px;
+}
+
+@keyframes growAndShrink {
+  0% {
+    transform: scale(1.0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+
+</style>
+
+<div class="page margin-top-medium">
+  <div class="left-block">
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
     <path fill="#FE9D8A" d="M263,213c-17.7,0-34.8,2.9-50.7,8.3c1.3,13.7,4.4,32.4,12.2,40.3C242,279.2,275,275,287.8,259
@@ -149,21 +256,192 @@
 
     </svg>
 
+
+
+    <div class="next-container">
+      <button>
+        <svg version="1.1" id="next-step" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
+        <path fill="#DB9700" d="M142.4,67.6h-7.8C106.3,67.6,83,44.8,83,16V8.2c0-3.4-2.4-5.8-5.8-5.8h-3.4c-2.9,0-5.8,2.4-5.8,5.8V16
+        c0,28.2-22.9,51.6-51.6,51.6H8c-2.9,0-5.4,2.4-5.4,5.4v3.9c0,2.9,2.4,5.8,5.8,5.8h8.3c28.2,0,51.6,22.9,51.6,51.6v8.3
+        c0,2.9,2.4,5.4,5.4,5.4h3.9c3.4,0,5.8-2.4,5.8-5.8v-7.8c0-28.2,22.9-51.6,51.6-51.6h7.8c2.9,0,5.8-2.4,5.8-5.8v-3.4
+        C148.2,70.6,145.3,67.6,142.4,67.6z"/>
+        </svg>
+      </button>
+    </div>
   </div>
 
-
-  <div class="next-container">
-    <button>
-      <svg version="1.1" id="next-step" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
-      <path fill="#DB9700" d="M142.4,67.6h-7.8C106.3,67.6,83,44.8,83,16V8.2c0-3.4-2.4-5.8-5.8-5.8h-3.4c-2.9,0-5.8,2.4-5.8,5.8V16
-      c0,28.2-22.9,51.6-51.6,51.6H8c-2.9,0-5.4,2.4-5.4,5.4v3.9c0,2.9,2.4,5.8,5.8,5.8h8.3c28.2,0,51.6,22.9,51.6,51.6v8.3
-      c0,2.9,2.4,5.4,5.4,5.4h3.9c3.4,0,5.8-2.4,5.8-5.8v-7.8c0-28.2,22.9-51.6,51.6-51.6h7.8c2.9,0,5.8-2.4,5.8-5.8v-3.4
-      C148.2,70.6,145.3,67.6,142.4,67.6z"/>
-      </svg>
-    </button>
+  <div class="right-block">
+    <div class="multi-pad-light">
+      <h1>Step 1</h1>
+      <p>
+        Place your microcontroller and an LED sequin.
+      </p>
+    </div>
   </div>
 
   <div class="clear"></div>
-
 </div>
+
+
+<script type="text/javascript">
+$('.page .left-block').css('background-image', 'url("/assets/dress/illo/bg1.svg")');
+reset();
+var is_empty = false;
+$('#next-step').click(function(){
+  $('#next-step').dequeue("circuitCross");
+  if (is_empty){
+    reset();
+    is_empty = false;
+  }
+  console.log("blaah", is_empty);
+});
+
+var i = 1;
+var steps = [
+  {
+    'title': "Step 1",
+    'description': "This is a complex description"
+  },
+  {
+    'title': "Step 2",
+    'description': "Now you want to sew from a positive output pin to the positive side of your LED. Then sew from the negative side of your LED to the ground on your microcontroller."
+  },
+  {
+    'title': "Step 3",
+    'description': "If you run a current through (by turning on the power for instance) you have a working circuit. You can use the code I've provided below to make a blink animation for instance."
+  },
+  {
+    'title': "Step 4",
+    'description': "You can add more LEDs and chain the sequins together."
+  },
+  {
+    'title': "Step 5",
+    'description': "If the wires cross however you'll create a short circuit and your system will no longer work."
+  },
+  {
+    'title': "Step 6",
+    'description': "You can correct the short by aligning the sequins in parallel."
+  },
+  {
+    'title': "Step 1",
+    'description': "This is a complex description"
+  },
+  {
+    'title': "Step 2",
+    'description': "This is a complex description"
+  },
+  {
+    'title': "Step 3",
+    'description': "This is a complex description"
+  }
+];
+function reset() {
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.wire-1').css('stroke-opacity', "1");
+    $('.wire-1').css('fill-opacity', "1");
+    $('.right-block h1').text(steps[i].title);
+    $('.right-block p').text(steps[i].description);
+    i++;
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $(".led-fill-1").first().attr('class', 'led-fill-1 led-fill-on');
+    $('.right-block h1').text(steps[i].title);
+    $('.right-block p').text(steps[i].description);
+    i++;
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.led2').css('stroke-opacity', "1");
+    $('.led2').css('fill-opacity', "1");
+
+    $('.right-block h1').text(steps[i].title);
+    $('.right-block p').text(steps[i].description);
+    i++;
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.crossed-wires').css('stroke-opacity', "1");
+    $('.crossed-wires').css('fill-opacity', "1");
+
+    $(".led-fill-1").attr('class', 'led-fill-1');
+
+    $('.right-block h1').text(steps[i].title);
+    $('.right-block p').text(steps[i].description);
+    i++;
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.led2').css('stroke-opacity', "0");
+    $('.led2').css('fill-opacity', "0");
+    $('.crossed-wires').css('stroke-opacity', "0");
+    $('.crossed-wires').css('fill-opacity', "0");
+    $('.led-sequin-2').css('stroke-opacity', "1");
+    $('.led-sequin-2').css('fill-opacity', "1");
+
+    //start led-fill-1 glowing
+    $(".led-fill-1").attr('class', 'led-fill-1 led-fill-on');
+
+    $('.led2-correction').css('stroke-opacity', "1");
+    $('.led2-correction').css('fill-opacity', "1");
+
+    $('.right-block h1').text(steps[i].title);
+    $('.right-block p').text(steps[i].description);
+    i++;
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.led-sequin-3').css('stroke-opacity', "1");
+    $('.led-sequin-3').css('fill-opacity', "1");
+
+    $('.right-block h1').text(steps[i].title);
+    $('.right-block p').text(steps[i].description);
+    i++;
+  });
+
+  $('#next-step').queue("circuitCross", function(){
+    $('.wire-2').css('stroke-opacity', "1");
+    $('.wire-2').css('fill-opacity', "1");
+    $(".led-fill-2").attr('class', 'led-fill-2 led-fill-on-2');
+
+    $('.right-block h1').text(steps[i].title);
+    $('.right-block p').text(steps[i].description);
+    i++;
+  });
+
+
+  $('#next-step').queue("circuitCross", function(){
+    resetAll();
+    is_empty = true;
+  });
+  // $('#next-step').queue("circuitCross", function(){
+  //   //do something to reset the queue;
+  //   reset();
+  // });
+  //
+}
+function resetAll(){
+    $('.wire-1').css('stroke-opacity', "0");
+    $('.wire-1').css('fill-opacity', "0");
+    $('.wire-2').css('stroke-opacity', "0");
+    $('.wire-2').css('fill-opacity', "0");
+    $('.led-sequin-2').css('stroke-opacity', "0");
+    $('.led-sequin-2').css('fill-opacity', "0");
+    $('.led-sequin-3').css('stroke-opacity', "0");
+    $('.led-sequin-3').css('fill-opacity', "0");
+    $(".led-fill-2").attr('class', 'led-fill-2');
+    $(".led-fill-1").attr('class', 'led-fill-1');
+    $('.crossed-wires').css('stroke-opacity', "0");
+    $('.crossed-wires').css('fill-opacity', "0");
+    $('.led2-correction').css('stroke-opacity', "0");
+    $('.led2-correction').css('fill-opacity', "0");
+    $('.led2').css('stroke-opacity', "0");
+    $('.led2').css('fill-opacity', "0");
+    $('.right-block h1').text(steps[0].title);
+    $('.right-block p').text(steps[0].description);
+    i=1;
+}
+
+</script>
