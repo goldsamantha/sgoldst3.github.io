@@ -9,28 +9,28 @@ short_title: "Circuits I"
 
 <body>
 
-
-  {% include dress_svgs/supplies.html %}
-
   <p>
     This post is will walk you through some important parts of making your own wearable textiles that light up. To start you'll need a few things.
 
-    For this project I used the <a href="https://www.adafruit.com/products/659?gclid=CKWw_tX868kCFYUWHwodw54CPQ"> FLORA </a> from Adafruit.
-
-    An image that shows all of the items and where to buy them.
+    You'll need a microcontroller: for this project I used the <a href="https://www.adafruit.com/products/659?gclid=CKWw_tX868kCFYUWHwodw54CPQ"> FLORA </a> from Adafruit.
+    You will also need some conductive thread, LED sequins, and a slip or other fabric to sew on. It helps if you sew directly into a slip or undergarment, that way you can reuse your dress, just by layering different materials on top of it.
   </p>
+  {% include dress_svgs/supplies.html %}
   <p>
     Once you have all of your supplies, you can start planning for your garment. Planning it out before you start sewing will save a lot of pain.
-
+  </p><p>
     It can be helpful to do a small sample circuit before you work on a larger piece to start to understand a bit more about your constraints.
-    I've provided a simulation below.
-
+    To start off we want to make the most basic circuit. I'm not going to go too far into detail here. A circuit is a closed loop of electricity allowing a current to pass through from a source of power to ground. When we introduce an LED into this loop, the electricity then passes through the LED and lights up.
+  </p><p>
+    Click on the star below to see some detailed instructions about planning your circuit.
   </p>
+
 {% include dress_svgs/stars_1.html %}
 
 
   <p>
-    Here's some code for
+    If you're looking for resources for flashing code onto your device, Adafruit has some <a href="https://learn.adafruit.com/adafruit-arduino-ide-setup/arduino-1-dot-6-x-ide">great resources for getting started</a> with the Arduino IDE.
+    Below is some sample code you can use for your basic circuit to blink from a single output pin.
   </p>
 <div class="margin-top-medium">
 {% highlight java %}
@@ -60,10 +60,14 @@ void loop() {
 {% endhighlight %}
 </div>
   <p>
-    <br>
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
-    <br>
+    Chances are pretty good that you're going to need to cross wires at some point in order to produce a more complex piece. Because conductive thread is not insulated itself (like many wires you may have used), you can put a piece of insulating material in between your thread so it doesn't touch (duct tape or a piece of fabric for instance).
+
+  </p>
+  <p>
+    Below is a more complex circuit you can use for yourself.
+  </p>
+  <p>
     And now you have a light up dress!
   </p>
   <video loop autoplay class="margin-top-medium">
