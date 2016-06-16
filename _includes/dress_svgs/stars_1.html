@@ -107,7 +107,7 @@ Star button to progress to next slide
 </style>
 
 <div class="page margin-top-medium">
-  <div class="left-block">
+  <div class="left-block stars-1-container">
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
     <path fill="#FE9D8A" d="M263,213c-17.7,0-34.8,2.9-50.7,8.3c1.3,13.7,4.4,32.4,12.2,40.3C242,279.2,275,275,287.8,259
@@ -258,7 +258,7 @@ Star button to progress to next slide
 
 
 
-    <div class="next-container">
+    <div class="next-container stars-1">
       <button>
         <svg version="1.1" id="next-step" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
@@ -285,16 +285,15 @@ Star button to progress to next slide
 
 
 <script type="text/javascript">
-$('.page .left-block').css('background-image', 'url("/assets/dress/illo/bg1.svg")');
+$('.page .left-block .stars-1-container').css('background-image', 'url("/assets/dress/illo/bg1.svg")');
 reset();
 var is_empty = false;
-$('#next-step').click(function(){
-  $('#next-step').dequeue("circuitCross");
+$('.stars-1 #next-step').click(function(){
+  $('.stars-1 #next-step').dequeue("circuitCross");
   if (is_empty){
     reset();
     is_empty = false;
   }
-  console.log("blaah", is_empty);
 });
 
 var i = 1;
@@ -338,7 +337,7 @@ var steps = [
 ];
 function reset() {
 
-  $('#next-step').queue("circuitCross", function(){
+  $('.stars-1 #next-step').queue("circuitCross", function(){
     $('.wire-1').css('stroke-opacity', "1");
     $('.wire-1').css('fill-opacity', "1");
     $('.right-block h1').text(steps[i].title);
@@ -346,14 +345,14 @@ function reset() {
     i++;
   });
 
-  $('#next-step').queue("circuitCross", function(){
+  $('.stars-1 #next-step').queue("circuitCross", function(){
     $(".led-fill-1").first().attr('class', 'led-fill-1 led-fill-on');
     $('.right-block h1').text(steps[i].title);
     $('.right-block p').text(steps[i].description);
     i++;
   });
 
-  $('#next-step').queue("circuitCross", function(){
+  $('.stars-1 #next-step').queue("circuitCross", function(){
     $('.led2').css('stroke-opacity', "1");
     $('.led2').css('fill-opacity', "1");
 
@@ -362,7 +361,7 @@ function reset() {
     i++;
   });
 
-  $('#next-step').queue("circuitCross", function(){
+  $('.stars-1 #next-step').queue("circuitCross", function(){
     $('.crossed-wires').css('stroke-opacity', "1");
     $('.crossed-wires').css('fill-opacity', "1");
 
@@ -373,7 +372,7 @@ function reset() {
     i++;
   });
 
-  $('#next-step').queue("circuitCross", function(){
+  $('.stars-1 #next-step').queue("circuitCross", function(){
     $('.led2').css('stroke-opacity', "0");
     $('.led2').css('fill-opacity', "0");
     $('.crossed-wires').css('stroke-opacity', "0");
@@ -392,7 +391,7 @@ function reset() {
     i++;
   });
 
-  $('#next-step').queue("circuitCross", function(){
+  $('.stars-1 #next-step').queue("circuitCross", function(){
     $('.led-sequin-3').css('stroke-opacity', "1");
     $('.led-sequin-3').css('fill-opacity', "1");
 
@@ -401,7 +400,7 @@ function reset() {
     i++;
   });
 
-  $('#next-step').queue("circuitCross", function(){
+  $('.stars-1 #next-step').queue("circuitCross", function(){
     $('.wire-2').css('stroke-opacity', "1");
     $('.wire-2').css('fill-opacity', "1");
     $(".led-fill-2").attr('class', 'led-fill-2 led-fill-on-2');
@@ -412,11 +411,11 @@ function reset() {
   });
 
 
-  $('#next-step').queue("circuitCross", function(){
+  $('.stars-1 #next-step').queue("circuitCross", function(){
     resetAll();
     is_empty = true;
   });
-  // $('#next-step').queue("circuitCross", function(){
+  // $('#next-step .stars-1').queue("circuitCross", function(){
   //   //do something to reset the queue;
   //   reset();
   // });
