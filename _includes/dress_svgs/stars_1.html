@@ -71,7 +71,7 @@ Star button to progress to next slide
 
 
 */
-#next-step{
+#next-step-1{
   width: 50px;
   animation: growAndShrink 2s infinite;
 }
@@ -260,7 +260,7 @@ Star button to progress to next slide
 
     <div class="next-container stars-1">
       <button>
-        <svg version="1.1" id="next-step" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        <svg version="1.1" id="next-step-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
         <path fill="#DB9700" d="M142.4,67.6h-7.8C106.3,67.6,83,44.8,83,16V8.2c0-3.4-2.4-5.8-5.8-5.8h-3.4c-2.9,0-5.8,2.4-5.8,5.8V16
         c0,28.2-22.9,51.6-51.6,51.6H8c-2.9,0-5.4,2.4-5.4,5.4v3.9c0,2.9,2.4,5.8,5.8,5.8h8.3c28.2,0,51.6,22.9,51.6,51.6v8.3
@@ -286,18 +286,35 @@ Star button to progress to next slide
 
 <script type="text/javascript">
 $('.page .left-block .stars-1-container').css('background-image', 'url("/assets/dress/illo/bg1.svg")');
-reset();
-var is_empty = false;
-$('.stars-1 #next-step').click(function(){
-  $('.stars-1 #next-step').dequeue("circuitCross");
-  if (is_empty){
-    reset();
-    is_empty = false;
-  }
-});
 
-var i = 1;
-var steps = [
+function StarSequencer(selector, queue_name) {
+  this.is_empty =  false;
+  this.iter = 1;
+  this.selector = selector;
+  this.queue_name = queue_name;
+  this.steps = [];
+  this.increment = function() {
+    this.iter++;
+    return;
+  };
+  this.getCurrentStep = function() {
+    return this.steps[this.iter];
+  };
+  this.getIter = function() {
+    return this.iter;
+  };
+  this.setIter = function(i) {
+    this.iter = i;
+  };
+  this.queue = function(queue_foo) {
+    $(selector).queue(this.queue_name, queue_foo);
+  };
+}
+
+var Star1 = new StarSequencer('.stars-1 #next-step-1', 'circuitCross');
+
+
+Star1.steps = [
   {
     'title': "Step 1",
     'description': "Place your microcontroller and an LED sequin"
@@ -335,93 +352,102 @@ var steps = [
     'description': "This is a complex description"
   }
 ];
-function reset() {
+Star1.reset = function() {
+  Star1.queue(
+    function(){
+      $('.wire-1').css('stroke-opacity', "1");
+      $('.wire-1').css('fill-opacity', "1");
+      $('.right-block h1').text(Star1.getCurrentStep().title);
+      $('.right-block p').text(Star1.getCurrentStep().description);
+      Star1.increment();
+    }
+  );
 
-  $('.stars-1 #next-step').queue("circuitCross", function(){
-    $('.wire-1').css('stroke-opacity', "1");
-    $('.wire-1').css('fill-opacity', "1");
-    $('.right-block h1').text(steps[i].title);
-    $('.right-block p').text(steps[i].description);
-    i++;
-  });
+  Star1.queue(
+    function(){
+      $(".led-fill-1").first().attr('class', 'led-fill-1 led-fill-on');
+      $('.right-block h1').text(Star1.getCurrentStep().title);
+      $('.right-block p').text(Star1.getCurrentStep().description);
+      Star1.increment();
+    }
+  );
 
-  $('.stars-1 #next-step').queue("circuitCross", function(){
-    $(".led-fill-1").first().attr('class', 'led-fill-1 led-fill-on');
-    $('.right-block h1').text(steps[i].title);
-    $('.right-block p').text(steps[i].description);
-    i++;
-  });
+  Star1.queue(
+    function(){
+      $('.led2').css('stroke-opacity', "1");
+      $('.led2').css('fill-opacity', "1");
+      $('.right-block h1').text(Star1.getCurrentStep().title);
+      $('.right-block p').text(Star1.getCurrentStep().description);
+      Star1.increment();
+    }
+  );
 
-  $('.stars-1 #next-step').queue("circuitCross", function(){
-    $('.led2').css('stroke-opacity', "1");
-    $('.led2').css('fill-opacity', "1");
+  Star1.queue(
+    function(){
+      $('.crossed-wires').css('stroke-opacity', "1");
+      $('.crossed-wires').css('fill-opacity', "1");
 
-    $('.right-block h1').text(steps[i].title);
-    $('.right-block p').text(steps[i].description);
-    i++;
-  });
+      $(".led-fill-1").attr('class', 'led-fill-1');
 
-  $('.stars-1 #next-step').queue("circuitCross", function(){
-    $('.crossed-wires').css('stroke-opacity', "1");
-    $('.crossed-wires').css('fill-opacity', "1");
+      $('.right-block h1').text(Star1.getCurrentStep().title);
+      $('.right-block p').text(Star1.getCurrentStep().description);
+      Star1.increment();
+    }
+  );
 
-    $(".led-fill-1").attr('class', 'led-fill-1');
+  Star1.queue(
+    function(){
+      $('.led2').css('stroke-opacity', "0");
+      $('.led2').css('fill-opacity', "0");
+      $('.crossed-wires').css('stroke-opacity', "0");
+      $('.crossed-wires').css('fill-opacity', "0");
+      $('.led-sequin-2').css('stroke-opacity', "1");
+      $('.led-sequin-2').css('fill-opacity', "1");
 
-    $('.right-block h1').text(steps[i].title);
-    $('.right-block p').text(steps[i].description);
-    i++;
-  });
+      //start led-fill-1 glowing
+      $(".led-fill-1").attr('class', 'led-fill-1 led-fill-on');
 
-  $('.stars-1 #next-step').queue("circuitCross", function(){
-    $('.led2').css('stroke-opacity', "0");
-    $('.led2').css('fill-opacity', "0");
-    $('.crossed-wires').css('stroke-opacity', "0");
-    $('.crossed-wires').css('fill-opacity', "0");
-    $('.led-sequin-2').css('stroke-opacity', "1");
-    $('.led-sequin-2').css('fill-opacity', "1");
+      $('.led2-correction').css('stroke-opacity', "1");
+      $('.led2-correction').css('fill-opacity', "1");
 
-    //start led-fill-1 glowing
-    $(".led-fill-1").attr('class', 'led-fill-1 led-fill-on');
+      $('.right-block h1').text(Star1.getCurrentStep().title);
+      $('.right-block p').text(Star1.getCurrentStep().description);
+      Star1.increment();
+    }
+  );
 
-    $('.led2-correction').css('stroke-opacity', "1");
-    $('.led2-correction').css('fill-opacity', "1");
+  Star1.queue(
+    function() {
+      $('.led-sequin-3').css('stroke-opacity', "1");
+      $('.led-sequin-3').css('fill-opacity', "1");
 
-    $('.right-block h1').text(steps[i].title);
-    $('.right-block p').text(steps[i].description);
-    i++;
-  });
+      $('.right-block h1').text(Star1.getCurrentStep().title);
+      $('.right-block p').text(Star1.getCurrentStep().description);
+      Star1.increment();
+    }
+  );
 
-  $('.stars-1 #next-step').queue("circuitCross", function(){
-    $('.led-sequin-3').css('stroke-opacity', "1");
-    $('.led-sequin-3').css('fill-opacity', "1");
+  Star1.queue(
+    function() {
+      $('.wire-2').css('stroke-opacity', "1");
+      $('.wire-2').css('fill-opacity', "1");
+      $(".led-fill-2").attr('class', 'led-fill-2 led-fill-on-2');
 
-    $('.right-block h1').text(steps[i].title);
-    $('.right-block p').text(steps[i].description);
-    i++;
-  });
+      $('.right-block h1').text(Star1.getCurrentStep().title);
+      $('.right-block p').text(Star1.getCurrentStep().description);
+      Star1.increment();
+    }
+  );
 
-  $('.stars-1 #next-step').queue("circuitCross", function(){
-    $('.wire-2').css('stroke-opacity', "1");
-    $('.wire-2').css('fill-opacity', "1");
-    $(".led-fill-2").attr('class', 'led-fill-2 led-fill-on-2');
-
-    $('.right-block h1').text(steps[i].title);
-    $('.right-block p').text(steps[i].description);
-    i++;
-  });
-
-
-  $('.stars-1 #next-step').queue("circuitCross", function(){
-    resetAll();
-    is_empty = true;
-  });
-  // $('#next-step .stars-1').queue("circuitCross", function(){
-  //   //do something to reset the queue;
-  //   reset();
-  // });
-  //
+  Star1.queue(
+    function() {
+      Star1.resetAll();
+      Star1.is_empty = true;
+    }
+  );
 }
-function resetAll(){
+Star1.resetAll = function(){
+    Star1.setIter(0);
     $('.wire-1').css('stroke-opacity', "0");
     $('.wire-1').css('fill-opacity', "0");
     $('.wire-2').css('stroke-opacity', "0");
@@ -438,9 +464,17 @@ function resetAll(){
     $('.led2-correction').css('fill-opacity', "0");
     $('.led2').css('stroke-opacity', "0");
     $('.led2').css('fill-opacity', "0");
-    $('.right-block h1').text(steps[0].title);
-    $('.right-block p').text(steps[0].description);
-    i=1;
+    $('.right-block h1').text(Star1.getCurrentStep().title);
+    $('.right-block p').text(Star1.getCurrentStep().description);
+    Star1.increment();
 }
 
+Star1.reset();
+$('.stars-1 #next-step-1').click(function(){
+  $('.stars-1 #next-step-1').dequeue("circuitCross");
+  if (Star1.is_empty){
+    Star1.reset();
+    Star1.is_empty = false;
+  }
+});
 </script>
