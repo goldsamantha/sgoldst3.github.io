@@ -287,10 +287,10 @@ Star button to progress to next slide
 <script type="text/javascript">
 $('.page .left-block .stars-1-container').css('background-image', 'url("/assets/dress/illo/bg1.svg")');
 
-
+// Create new star sequencing object and fill in with necessary data
 var Star1 = new StarSequencer('.stars-1 #next-step-1', 'circuitCross');
 
-
+// Instructions that should be shown with the sequencer
 Star1.steps = [
   {
     'title': "Step 1",
@@ -329,6 +329,8 @@ Star1.steps = [
     'description': "This is a complex description"
   }
 ];
+
+// Create a reset function for the first star object
 Star1.reset = function() {
   Star1.queue(
     function(){
