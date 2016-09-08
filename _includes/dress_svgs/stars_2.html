@@ -4,7 +4,6 @@
   animation-fill-mode: forwards;
 }
 
-
 @keyframes fadeOut{
   0% {
     stroke-opacity: 1;
@@ -14,11 +13,6 @@
     stroke-opacity: 0;
     fill-opacity: 0;
   }
-}
-
-#constellation{
-  fill-opacity: 0;
-  stroke-opacity: 0;
 }
 
 .fade-in{
@@ -37,8 +31,22 @@
   }
 }
 
-.pin2-animate{
-  animation: pulse 2s infinite;
+.pin1 {
+  animation: pulse 5s infinite;
+}
+
+.pin2 {
+  animation: pulse 3s infinite;
+}
+
+#constellation{
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+
+#next-step-2{
+  width: 50px;
+  animation: growAndShrink 2s infinite;
 }
 
 @keyframes pulse {
@@ -61,7 +69,7 @@
   <svg version="1.1" id="circuit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 1402 2103" enable-background="new 0 0 1402 2103" xml:space="preserve">
   <line fill="none" stroke="#E46644" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="7,32" x1="1124.5" y1="648.5" x2="1124.5" y2="726.5"/>
-  <g class="wire-1">
+  <g class="wire-stars2-1">
 
       <polyline fill="none" stroke="#E8A833" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="9.1686,32.0901" points="
       978,863 1060.5,863 1060.5,1269 408,1269 	"/>
@@ -119,8 +127,7 @@
 
       <line fill="none" stroke="#63E0DC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="7,32" x1="52" y1="1138" x2="168" y2="1138"/>
   </g>
-  <g class="wire-2-2">
-
+  <g class="live">
       <polyline fill="none" stroke="#E46644" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="9.1686,32.0901" points="
       504,357 702.5,357 702.5,723 1124.5,723 1124.5,1464.5 	"/>
 
@@ -546,18 +553,18 @@
   </g>
   </svg>
 
+  <div class="next-container stars-2">
+    <svg version="1.1" id="next-step-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
+    <path fill="#DB9700" d="M142.4,67.6h-7.8C106.3,67.6,83,44.8,83,16V8.2c0-3.4-2.4-5.8-5.8-5.8h-3.4c-2.9,0-5.8,2.4-5.8,5.8V16
+      c0,28.2-22.9,51.6-51.6,51.6H8c-2.9,0-5.4,2.4-5.4,5.4v3.9c0,2.9,2.4,5.8,5.8,5.8h8.3c28.2,0,51.6,22.9,51.6,51.6v8.3
+      c0,2.9,2.4,5.4,5.4,5.4h3.9c3.4,0,5.8-2.4,5.8-5.8v-7.8c0-28.2,22.9-51.6,51.6-51.6h7.8c2.9,0,5.8-2.4,5.8-5.8v-3.4
+      C148.2,70.6,145.3,67.6,142.4,67.6z"/>
+    </svg>
+  </div>
   </div>
 
-  <div class="next-container stars-2">
-  <svg version="1.1" id="next-step-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
-  <path fill="#DB9700" d="M142.4,67.6h-7.8C106.3,67.6,83,44.8,83,16V8.2c0-3.4-2.4-5.8-5.8-5.8h-3.4c-2.9,0-5.8,2.4-5.8,5.8V16
-    c0,28.2-22.9,51.6-51.6,51.6H8c-2.9,0-5.4,2.4-5.4,5.4v3.9c0,2.9,2.4,5.8,5.8,5.8h8.3c28.2,0,51.6,22.9,51.6,51.6v8.3
-    c0,2.9,2.4,5.4,5.4,5.4h3.9c3.4,0,5.8-2.4,5.8-5.8v-7.8c0-28.2,22.9-51.6,51.6-51.6h7.8c2.9,0,5.8-2.4,5.8-5.8v-3.4
-    C148.2,70.6,145.3,67.6,142.4,67.6z"/>
-  </svg>
-  </div>
-  <div class="right-block">
+  <div class="right-block stars2-text-block">
     <div class="multi-pad-light margin-top-medium">
       <h1>Step 1</h1>
       <p>
@@ -572,42 +579,80 @@
 
   <script type="text/javascript">
     $('.page .stars-2-container').css('background-image', 'url("/assets/dress/illo/bg2.svg")');
-    resetStars2();
-    var is_empty = false;
+
+    var Star2 = new StarSequencer('.stars-2 #next-step-2', 'circuitQueue');
+    Star2.steps = [
+      {
+        'title': "Step 1",
+        'description': "Place your microcontroller and an LED sequin"
+      },
+      {
+        'title': "Step 2",
+        'description': "Now you want to sew from a positive output pin to the positive side of your LED. Then sew from the negative side of your LED to the ground on your microcontroller."
+      },
+      {
+        'title': "Step 3",
+        'description': "If you run a current through (by turning on the power for instance) you have a working circuit. You can use the code I've provided below to make a blink animation for instance."
+      },
+      {
+        'title': "Step 4",
+        'description': "If you run a current through (by turning on the power for instance) you have a working circuit. You can use the code I've provided below to make a blink animation for instance."
+      }
+    ];
+
+    Star2.reset = function() {
+      Star2.queue(
+        function(){
+          $('#circuit').attr("class", "fade-out");
+          $('.stars2-text-block h1').text(Star2.getCurrentStep().title);
+          $('.stars2-text-block p').text(Star2.getCurrentStep().description);
+          Star2.increment();
+        }
+      );
+
+      Star2.queue(
+        function(){
+          $('#constellation').attr("class", "fade-in");
+          $('.stars2-text-block h1').text(Star2.getCurrentStep().title);
+          $('.stars2-text-block p').text(Star2.getCurrentStep().description);
+          Star2.increment();
+        }
+      );
+
+      Star2.queue(
+        function(){
+          $('.pin2-pre').attr("class", "pin2");
+          $('.pin1-pre').attr("class", "pin1");
+          $('.stars2-text-block h1').text(Star2.getCurrentStep().title);
+          $('.stars2-text-block p').text(Star2.getCurrentStep().description);
+          Star2.increment();
+        }
+      );
+
+      Star2.queue(
+        function() {
+          Star2.resetAll();
+          Star2.is_empty = true;
+        }
+      );
+    }
+
+    Star2.resetAll = function(){
+      Star2.setIter(0);
+      $('.pin2').attr('class', 'pin2-pre');
+      $('.pin1').attr('class', 'pin1-pre');
+      $('#constellation').attr("class", "fade-out");
+      $('#circuit').attr("class", "fade-in");
+    }
+    Star2.reset();
+
     $('.stars-2 #next-step-2').click(function(){
       $('.stars-2 #next-step-2').dequeue("circuitQueue");
-      if (is_empty){
-        resetStars2();
-        is_empty = false;
+      if (Star2.is_empty){
+        Star2.reset();
+        Star2.is_empty = false;
       }
     });
-
-    function resetStars2() {
-      $('.stars-2 #next-step-2').queue("circuitQueue", function(){
-        $('#circuit').attr("class", "fade-out");
-      });
-
-      $('.stars-2 #next-step-2').queue("circuitQueue", function(){
-        $('#constellation').attr("class", "fade-in");
-      });
-
-      $('.stars-2 #next-step-2').queue("circuitQueue", function(){
-        $('.pin2-pre').attr("class", "pin2");
-        $('.pin1-pre').attr("class", "pin1");
-      });
-
-
-      $('.stars-2 #next-step-2').queue("circuitQueue", function(){
-        resetAllStars2();
-        is_empty = true;
-      });
-    }
-
-    /*
-    function resetAllStars2(){
-        i=1;
-    }
-    */
 
 
   </script>

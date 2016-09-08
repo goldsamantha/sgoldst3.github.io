@@ -271,7 +271,7 @@ Star button to progress to next slide
     </div>
   </div>
 
-  <div class="right-block">
+  <div class="right-block stars1-text-block">
     <div class="multi-pad-light margin-top-medium">
       <h1>Step 1</h1>
       <p>
@@ -336,8 +336,8 @@ Star1.reset = function() {
     function(){
       $('.wire-1').css('stroke-opacity', "1");
       $('.wire-1').css('fill-opacity', "1");
-      $('.right-block h1').text(Star1.getCurrentStep().title);
-      $('.right-block p').text(Star1.getCurrentStep().description);
+      $('.stars1-text-block h1').text(Star1.getCurrentStep().title);
+      $('.stars1-text-block p').text(Star1.getCurrentStep().description);
       Star1.increment();
     }
   );
@@ -345,8 +345,8 @@ Star1.reset = function() {
   Star1.queue(
     function(){
       $(".led-fill-1").first().attr('class', 'led-fill-1 led-fill-on');
-      $('.right-block h1').text(Star1.getCurrentStep().title);
-      $('.right-block p').text(Star1.getCurrentStep().description);
+      $('.stars1-text-block h1').text(Star1.getCurrentStep().title);
+      $('.stars1-text-block p').text(Star1.getCurrentStep().description);
       Star1.increment();
     }
   );
@@ -355,8 +355,8 @@ Star1.reset = function() {
     function(){
       $('.led2').css('stroke-opacity', "1");
       $('.led2').css('fill-opacity', "1");
-      $('.right-block h1').text(Star1.getCurrentStep().title);
-      $('.right-block p').text(Star1.getCurrentStep().description);
+      $('.stars1-text-block h1').text(Star1.getCurrentStep().title);
+      $('.stars1-text-block p').text(Star1.getCurrentStep().description);
       Star1.increment();
     }
   );
@@ -368,8 +368,8 @@ Star1.reset = function() {
 
       $(".led-fill-1").attr('class', 'led-fill-1');
 
-      $('.right-block h1').text(Star1.getCurrentStep().title);
-      $('.right-block p').text(Star1.getCurrentStep().description);
+      $('.stars1-text-block h1').text(Star1.getCurrentStep().title);
+      $('.stars1-text-block p').text(Star1.getCurrentStep().description);
       Star1.increment();
     }
   );
@@ -389,8 +389,8 @@ Star1.reset = function() {
       $('.led2-correction').css('stroke-opacity', "1");
       $('.led2-correction').css('fill-opacity', "1");
 
-      $('.right-block h1').text(Star1.getCurrentStep().title);
-      $('.right-block p').text(Star1.getCurrentStep().description);
+      $('.stars1-text-block h1').text(Star1.getCurrentStep().title);
+      $('.stars1-text-block p').text(Star1.getCurrentStep().description);
       Star1.increment();
     }
   );
@@ -400,8 +400,8 @@ Star1.reset = function() {
       $('.led-sequin-3').css('stroke-opacity', "1");
       $('.led-sequin-3').css('fill-opacity', "1");
 
-      $('.right-block h1').text(Star1.getCurrentStep().title);
-      $('.right-block p').text(Star1.getCurrentStep().description);
+      $('.stars1-text-block h1').text(Star1.getCurrentStep().title);
+      $('.stars1-text-block p').text(Star1.getCurrentStep().description);
       Star1.increment();
     }
   );
@@ -412,8 +412,8 @@ Star1.reset = function() {
       $('.wire-2').css('fill-opacity', "1");
       $(".led-fill-2").attr('class', 'led-fill-2 led-fill-on-2');
 
-      $('.right-block h1').text(Star1.getCurrentStep().title);
-      $('.right-block p').text(Star1.getCurrentStep().description);
+      $('.stars1-text-block h1').text(Star1.getCurrentStep().title);
+      $('.stars1-text-block p').text(Star1.getCurrentStep().description);
       Star1.increment();
     }
   );
@@ -443,8 +443,8 @@ Star1.resetAll = function(){
     $('.led2-correction').css('fill-opacity', "0");
     $('.led2').css('stroke-opacity', "0");
     $('.led2').css('fill-opacity', "0");
-    $('.right-block h1').text(Star1.getCurrentStep().title);
-    $('.right-block p').text(Star1.getCurrentStep().description);
+    $('.stars1-text-block h1').text(Star1.getCurrentStep().title);
+    $('.stars1-text-block p').text(Star1.getCurrentStep().description);
     Star1.increment();
 }
 
