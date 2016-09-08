@@ -69,7 +69,8 @@
   <svg version="1.1" id="circuit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 1402 2103" enable-background="new 0 0 1402 2103" xml:space="preserve">
   <line fill="none" stroke="#E46644" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="7,32" x1="1124.5" y1="648.5" x2="1124.5" y2="726.5"/>
-  <g class="wire-stars2-1">
+  <g>
+    <!-- ground wire -->
 
       <polyline fill="none" stroke="#E8A833" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="9.1686,32.0901" points="
       978,863 1060.5,863 1060.5,1269 408,1269 	"/>
@@ -96,8 +97,8 @@
 
       <line fill="none" stroke="#E8A833" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="7,32" x1="1060" y1="1070" x2="1267" y2="1070"/>
   </g>
-  <g class="ground">
-
+  <g>
+      <!-- Wire 2 -->
       <polyline fill="none" stroke="#63E0DC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="9.1686,32.0901" points="
       1010,619 985.5,619 985.5,504 1060.5,504 1060.5,418 1192.5,418 1192.5,257 339.5,257 339.5,357 50.5,357 50.5,1740 736,1740 	"/>
 
@@ -584,34 +585,23 @@
     Star2.steps = [
       {
         'title': "Step 1",
-        'description': "Place your microcontroller and an LED sequin"
+        'description': "Now you're set to make a much more complicated circuit. That means you'll likely encounter places where the wires must cross. Place an insulating material (like duct tape) between the layers of wire to make sure they don't touch."
       },
       {
         'title': "Step 2",
-        'description': "Now you want to sew from a positive output pin to the positive side of your LED. Then sew from the negative side of your LED to the ground on your microcontroller."
+        'description': "You now have all of the workings of your very own light up dress. It can be a good idea to sew in a pocket to hold your battery."
       },
       {
         'title': "Step 3",
-        'description': "If you run a current through (by turning on the power for instance) you have a working circuit. You can use the code I've provided below to make a blink animation for instance."
-      },
-      {
-        'title': "Step 4",
-        'description': "If you run a current through (by turning on the power for instance) you have a working circuit. You can use the code I've provided below to make a blink animation for instance."
+        'description': "Turn it on!"
       }
+
     ];
 
     Star2.reset = function() {
       Star2.queue(
         function(){
           $('#circuit').attr("class", "fade-out");
-          $('.stars2-text-block h1').text(Star2.getCurrentStep().title);
-          $('.stars2-text-block p').text(Star2.getCurrentStep().description);
-          Star2.increment();
-        }
-      );
-
-      Star2.queue(
-        function(){
           $('#constellation').attr("class", "fade-in");
           $('.stars2-text-block h1').text(Star2.getCurrentStep().title);
           $('.stars2-text-block p').text(Star2.getCurrentStep().description);
@@ -643,6 +633,9 @@
       $('.pin1').attr('class', 'pin1-pre');
       $('#constellation').attr("class", "fade-out");
       $('#circuit').attr("class", "fade-in");
+      $('.stars2-text-block h1').text(Star2.getCurrentStep().title);
+      $('.stars2-text-block p').text(Star2.getCurrentStep().description);
+      Star2.increment();
     }
     Star2.reset();
 

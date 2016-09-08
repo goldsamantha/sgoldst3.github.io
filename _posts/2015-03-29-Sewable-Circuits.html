@@ -27,20 +27,6 @@ short_title: "Circuits I"
 
 {% include dress_svgs/stars_1.html %}
 
-
-  <p>
-    If you're looking for resources for flashing code onto your device, Adafruit has some <a href="https://learn.adafruit.com/adafruit-arduino-ide-setup/arduino-1-dot-6-x-ide">great resources for getting started</a> with the Arduino IDE.
-    Below is some sample code you can use for your basic circuit to blink from a single output pin.
-  </p>
-
-{% include dress_svgs/stars_2.html %}
-
-
-  <p>
-    If you're looking for resources for flashing code onto your device, Adafruit has some <a href="https://learn.adafruit.com/adafruit-arduino-ide-setup/arduino-1-dot-6-x-ide">great resources for getting started</a> with the Arduino IDE.
-    Below is some sample code you can use for your basic circuit to blink from a single output pin.
-  </p>
-
 <div class="margin-top-medium">
 {% highlight java %}
 int led = 10;   // Look at your flora, this number corresponds
@@ -76,8 +62,86 @@ void loop() {
   <p>
     Below is a more complex circuit you can use for yourself.
   </p>
+
+  <!-- Dress 2 code -->
+
+  {% include dress_svgs/stars_2.html %}
+
   <p>
-    And now you have a light up dress!
+    I recommend drawing your circuit onto your garment with markers, using
+    three different colors: one for each of your outputs, and a different color
+    for ground. Be sure to mark the places you'll need to add insulated material
+    so it's obvious when you are sewing. Once your planning is done sew on your
+    first led. It's best to complete a full circuit at this point so that you
+    can debug incrementally. Plug in the battery and flash the code for a single
+    LED provided above. If something isn't working, try changing the LED number
+    to be the onboard LED. If the onboard LED works, then you probably have a crossed
+    wire that you'll need to attend to.
+  </p>
+  <p>
+    After you've successfully blinked once, chain your LEDs, to get a complex circuit
+    for one individual frequency. Then you can do the same process to add in your
+    second frequency, so that you have two steady pulses, or really whatever pattern you want!
+  </p>
+  <p>
+    I've provided some rudimentary code below to make the pattern that I use, but it's totally
+    up to you! Now you're done, and now you sparkle!
+  </p>
+
+  <div class="margin-top-medium">
+  {% highlight java %}
+  // Note: this is all simplified--you'll
+  // probably have different output pin numbers
+  // Make sure the pin numbers correspond
+  // to the ones that you choose.
+  int led1 = 1;
+  int led2 = 2;
+
+  int brightness1 =  0;   // Start the first frequency turned off
+  int fadeAmount1 = 5;
+  int brightness2 = 255;  // Start led2 out on full brightness
+  int fadeAmount2 = -10;  // Have a different fade amount for
+                          // leds 1 and 2 This allows the pins to change brightness at different speeds
+
+  int delayIncr = 15;
+
+  // the setup routine runs once when you press reset:
+  void setup() {
+  }
+
+  // the loop routine runs over and over again forever:
+  // tweak this as much as you want to get the desired effect
+  void loop() {
+      analogWrite(led1, brightness1);
+      analogWrite(led2, brightness2);
+
+      brightness1 = brightness1 + fadeAmount1;
+      brightness2 = brightness2 + fadeAmount2;
+
+      if (brightness1 == 0 || brightness1 == 255) {
+        fadeAmount1 = -fadeAmount1;
+      }
+
+      if (brightness2 < 0){
+        fadeAmount2 = -fadeAmount2;
+        brightness2 = 0;
+
+      }
+
+      else if (brightness2 > 255) {
+        fadeAmount2 = -fadeAmount2;
+        brightness2 = 255;
+      }
+
+
+      delay(40);
+  }
+  {% endhighlight %}
+  </div>
+
+  <p>
+    P.S. If you're looking for resources for flashing code onto your device, Adafruit has some <a href="https://learn.adafruit.com/adafruit-arduino-ide-setup/arduino-1-dot-6-x-ide">great information on getting started</a> with the Arduino IDE.
+    Below is some sample code you can use for your basic circuit to blink from a single output pin.
   </p>
   <video loop autoplay class="margin-top-medium">
     <source src="/assets/dress/dress_cropped_light.mp4" type="video/mp4">
