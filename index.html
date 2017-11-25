@@ -26,12 +26,11 @@ layout: home
 
 <body>
 
-  <script type="text/javascript" src="{{site.url}}/js/library/moon.js"></script>
-  <script type="text/javascript" src="{{site.url}}/js/library/toggle.js"></script>
-  <script type="text/javascript" src="{{site.url}}/js/library/jquery.js"></script>
+  <script type="text/javascript" src="/js/library/moon.js"></script>
+  <script type="text/javascript" src="/js/library/toggle.js"></script>
+  <script type="text/javascript" src="/js/library/jquery.js"></script>
 
   <div class="container">
-
     <div class="load">
     </div>
 
@@ -77,26 +76,16 @@ layout: home
 
                   <ul>
                     <li>
-                      <a href="mailto:samantha.goldstein31@gmail.com"><img src = "{{site.url}}assets/home/mail.svg" /></a>
+                      <a href="mailto:samantha.goldstein31@gmail.com"><img src = "/assets/home/mail.svg" /></a>
 
                     </li>
 
                     <li>
-                      <a href="http://www.twitter.com/samantha_gold" ><img src="{{site.url}}assets/home/twitter.svg" /></a>
+                      <a href="http://www.twitter.com/samantha_gold" ><img src="/assets/home/twitter.svg" /></a>
                     </li>
 
                     <li>
-
-                      <a href="http://www.instagram.com/goldsam" ><img src="{{site.url}}assets/home/instagram.svg" /></a>
-                    </li>
-
-                    <li>
-
-                      <a href="http://www.simplice.tumblr.com" ><img src="{{site.url}}assets/home/tumblr.svg" /></a>
-                    </li>
-
-                    <li>
-                      <a href="https://www.facebook.com/samanthagoldsteinart" ><img src="{{site.url}}assets/home/facebook.svg" /></a>
+                      <a href="http://www.instagram.com/goldsam" ><img src="/assets/home/instagram.svg" /></a>
                     </li>
 
                   </ul>
@@ -241,26 +230,17 @@ layout: home
 
           <ul>
             <li>
-              <a href="mailto:samantha.goldstein31@gmail.com"><img src = "{{site.url}}assets/home/mail.svg" /></a>
+              <a href="mailto:samantha.goldstein31@gmail.com"><img src = "/assets/home/mail.svg" /></a>
 
             </li>
 
             <li>
-              <a href="http://www.twitter.com/samantha_gold" ><img src="{{site.url}}assets/home/twitter.svg" /></a>
+              <a href="http://www.twitter.com/samantha_gold" ><img src="/assets/home/twitter.svg" /></a>
             </li>
 
             <li>
 
-              <a href="http://www.instagram.com/goldsam" ><img src="{{site.url}}assets/home/instagram.svg" /></a>
-            </li>
-
-            <li>
-
-              <a href="http://www.simplice.tumblr.com" ><img src="{{site.url}}assets/home/tumblr.svg" /></a>
-            </li>
-
-            <li>
-              <a href="https://www.facebook.com/samanthagoldsteinart" ><img src="{{site.url}}assets/home/facebook.svg" /></a>
+              <a href="http://www.instagram.com/goldsam" ><img src="/assets/home/instagram.svg" /></a>
             </li>
 
           </ul>
@@ -280,10 +260,10 @@ layout: home
 
     <script type="text/javascript">
        //This prepares background images...
-       var background_string = "linear-gradient(rgba(27,41,63,.25), rgba(27,41,63,.3)), url('{{site.url}}assets/home/night_sky1.jpg')";
+       var background_string = "linear-gradient(rgba(27,41,63,.25), rgba(27,41,63,.3)), url('/assets/home/night_sky1.jpg')";
        $('.load').css('background', background_string);
-       $('.about-image').css('background-image', 'url("{{site.url}}assets/home/bio.png")');
-       $('.moving-stars').css('background-image', 'url("{{site.url}}assets/home/dots30.png")');
+       $('.about-image').css('background-image', 'url("/assets/home/bio.png")');
+       $('.moving-stars').css('background-image', 'url("/assets/home/dots30.png")');
 
        {% capture posts %}
        [
