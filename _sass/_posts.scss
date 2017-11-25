@@ -163,6 +163,7 @@ Middle Content
   height: 300px;
   display: flex;
   justify-content: center;
+  background-color: $dark-blue;
   h1, h2{
     color: $light-color;
     font-size: 65px;
@@ -184,4 +185,8 @@ Middle Content
   }
 
 
+}
+
+.right-bottom {
+  background-color: $dark-blue;
 }

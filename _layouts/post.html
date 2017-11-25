@@ -71,28 +71,25 @@
 
 
   <script type="text/javascript">
-    var color = 'rgba(0,0,0,.55)';
-    var bg_string = "linear-gradient("+ color + "," + color +"), url('{{site.url}}{{page.cover_url}}')";
-
-    if ( $('body').width() < 800 ){
-      bg_string = "url('{{site.url}}{{page.cover_url}}')";
-    }
-
-    function setBackground(background_prop_string) {
-      $('.cover-photo').css('background', background_prop_string);
+    function setBackground() {
+      var color = 'rgba(0,0,0,.55)';
+      var bg_string = "linear-gradient("+ color + "," + color +"), url('{{site.url}}/{{page.cover_url}}')";
+      if ($('body').width() < 800){
+        bg_string = "url('{{site.url}}/{{page.cover_url}}')";
+      }
+      $('.cover-photo').css('background', bg_string);
       $('.cover-photo').css('background-size', 'cover');
       $('.cover-photo').css('background-position', 'center center');
     }
 
-    setBackground(bg_string);
-
+    if ("{{page.cover_url}}" != "") {
+      setBackground();
+    }
 
     window.onresize = function(){
-      bg_string = "linear-gradient("+ color + "," + color +"), url('{{site.url}}{{page.cover_url}}')";
-      if ($('body').width() < 800){
-        bg_string = "url('{{site.url}}{{page.cover_url}}')";
+      if ("{{page.cover_url}}" != "") {
+        setBackground();
       }
-      setBackground(bg_string);
     };
 
   </script>

@@ -15,10 +15,12 @@ function setNext(posts, post_index) {
   var index = (post_index+1).mod(posts.length);
   next_post.setAttribute('href', posts[index].url);
 
-  var color = 'rgba(0,0,0,.5)';
-  $('.right-bottom').css('background',
-    "linear-gradient("+ color + "," + color +"), url('" + posts[index].cover_url +"')");
-  $('.right-bottom').css('background-size', 'cover');
+  if (posts[index].cover_url != "") {
+    var color = 'rgba(0,0,0,.5)';
+    $('.right-bottom').css('background',
+      "linear-gradient("+ color + "," + color +"), url('" + posts[index].cover_url +"')");
+    $('.right-bottom').css('background-size', 'cover');
+  }
   var title = posts[index].title;
   $('.right-bottom h2').text(title.toUpperCase().slice(0,1)+title.slice(1, title.length));
 
