@@ -73,9 +73,9 @@
   <script type="text/javascript">
     function setBackground() {
       var color = 'rgba(0,0,0,.55)';
-      var bg_string = "linear-gradient("+ color + "," + color +"), url('{{site.url}}/{{page.cover_url}}')";
+      var bg_string = "linear-gradient("+ color + "," + color +"), url('{{page.cover_url}}')";
       if ($('body').width() < 800){
-        bg_string = "url('{{site.url}}/{{page.cover_url}}')";
+        bg_string = "url('{{page.cover_url}}')";
       }
       $('.cover-photo').css('background', bg_string);
       $('.cover-photo').css('background-size', 'cover');
