@@ -18,5 +18,12 @@ url: "http://samanthagoldste.in/" # the base hostname & protocol for your site
 twitter_username: samantha_gold
 github_username:  sgoldst3
 
+collections_dir: resources
+collections:
+  resources:
+    trying:
+      output: true
+
+
 # Build settings
 markdown: kramdown

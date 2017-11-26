@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "No Solder Hardware"
+date:   2017-11-25 01:03:20 -0500
+categories: jekyll update
+cover_url: ""
+short_title: "Hardware"
+---
+
+<body>
+  Hi! I'm an empty template for now! Will update with hella posts soon yeeahh
+  putting more in here
+
+  {% for resource in site.resources %}
+    {% for item in resource.trying %}
+      <p>Hi? {{item.title}}</p>
+      {{item.content}}
+    {% endfor %}
+  {% endfor %}
+</body>
