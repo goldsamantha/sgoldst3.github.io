@@ -187,6 +187,27 @@ Middle Content
 
 }
 
+/*
+Inner content in middle column
+*/
+
+.post {
+  h1, h2, h3, p {
+    color: $grey-color-dark;
+    font-weight: normal;
+    text-align: left;
+    display: block;
+  }
+
+  a {
+    font-weight: normal;
+  }
+
+  li {
+    list-style: circle inside;
+  }
+}
+
 .right-bottom {
   background-color: $dark-blue;
 }

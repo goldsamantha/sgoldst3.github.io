@@ -8,13 +8,42 @@ short_title: "Hardware"
 ---
 
 <body>
-  Hi! I'm an empty template for now! Will update with hella posts soon yeeahh
-  putting more in here
+<div class="post">
+  I was putting together a small list of resources for a friend of hardware projects that don't take any soldering and here they are for you! NOTE: I haven’t tried all of these, so go at your own risk. And if you have any suggestions, PRs are welcome!
+  <br><br>
+  <h2>Paper craft/scrapbooking:</h2>
+  <br>
+  <h4><a href="https://chibitronics.myshopify.com/collections">Chibitronics</a>:</h4>
+  <p>These products are so cute and accessible for scrapbooking, card making, crafting in general. Store by <a href="http://technolojie.com/">Jie Qi</a>:</p>
+    <ul>
+      <li><a href="https://chibitronics.myshopify.com/collections/getting-started/products/chibitronics-chibi-lights-led-circuit-stickers-stem-starter-kit">Starter Kit</a>: comes with copper tape, led stickers, batteries</li>
+      <li><a href="https://chibitronics.myshopify.com/collections/advanced-stickers/products/chibi-chip-starter-kit">More advanced starter kit</a>: comes with an awesome looking story book, cables,  led stickers, etc.</li>
+    </ul>
 
-  {% for resource in site.resources %}
-    {% for item in resource.trying %}
-      <p>Hi? {{item.title}}</p>
-      {{item.content}}
-    {% endfor %}
-  {% endfor %}
+  <h4><a href="https://www.sparkfun.com/">Sparkfun</a>:</h4>
+    <ul>
+      <li><a href="https://www.sparkfun.com/products/13255">Sketchbook circuits</a>:  I haven’t tried this one but it looks really cool/cute! Comes with a conductive ink pen and some small components, sensors meant to be attached to paper. I’m a bit skeptical of conductive ink pens as I’ve heard they’re quite finicky though.</li>
+    </ul>
+
+  <br><br>
+  <h2>Sewable Electronics:</h2>
+  <ul>
+    <li><a href="https://www.sparkfun.com/lilypad_products">Lilypad Arduino</a>:
+      <a href="https://www.sparkfun.com/products/13927">This kit</a> comes with a couple of great projects for e-sewing. The microcontroller here come pre-programmed which is awesome for people who are newer to programming, or newer to hardware /and/ programming. It also provides a nice challenge if you want to edit the code that comes pre-programmed.
+    </li>
+    <li><a href="https://www.adafruit.com/flora">FLORA</a>: If you want to buy the individual pieces I have a write up here with all the relevant links to the materials you would need, a bit more work is needed for this one because they don’t come pre-programmed, but in general I’ve supplied code for them in <a href="http://samanthagoldste.in/jekyll/update/2016/03/29/Sewable-Circuits.html">my previous post</a></li>
+    <li>FLORA/Gemma starter packs: These are perfect starter packs for the
+      <a href="https://www.adafruit.com/product/1405">FLORA</a> and <a href="https://www.adafruit.com/product/1657">Gemma</a>
+      respectively but they look like they’re sold out at the moment. In general
+      if you’re not doing anything too complicated the Gemma is a really accessible first microcontroller,
+      however it can be a bit tricky to get to play nicely with the Arduino IDE in my experience.
+      To get something up and running quickly with it you can simply stitch out from vOut,
+      and that runs a steady current without needing to be programmed.
+    </li>
+  </ul>
+  <br>
+
+
+</div>
+
 </body>
